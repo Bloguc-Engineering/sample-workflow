@@ -1,0 +1,15 @@
+name: Example for External Event Workflow
+on:
+  repository_dispatch:
+    types:                   # Define the event types to trigger the workflow
+      - custom_event         # Replace with your custom event type
+jobs:
+  external-job:
+    name: Exteranljob
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run custom action
+        run: |
+          echo "This workflow was triggered by an external event."
